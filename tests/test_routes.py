@@ -53,7 +53,7 @@ class TestAccountService(TestCase):
         """Runs once after each test case"""
         db.session.remove()
 
-    
+
     ######################################################################
     #  H E L P E R   M E T H O D S
     ######################################################################
@@ -141,7 +141,7 @@ class TestAccountService(TestCase):
         """It should not Read an Account that is not found"""
         resp = self.client.get(f"{BASE_URL}/0")
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
-        
+
 
     def test_get_account_list(self):
         """It should Get a list of Accounts"""
@@ -194,7 +194,7 @@ class TestAccountService(TestCase):
             print(response.headers.get(key))
             print(response.headers)
             self.assertEqual(response.headers.get(key), value)
-        
+
     def test_cors_security(self):
         """It should return a CORS header"""
         response = self.client.get('/', environ_overrides=HTTPS_ENVIRON)
