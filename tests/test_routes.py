@@ -53,11 +53,9 @@ class TestAccountService(TestCase):
         """Runs once after each test case"""
         db.session.remove()
 
-
     ######################################################################
     #  H E L P E R   M E T H O D S
     ######################################################################
-
     def _create_accounts(self, count):
         """Factory method to create accounts in bulk"""
         accounts = []
@@ -141,7 +139,6 @@ class TestAccountService(TestCase):
         """It should not Read an Account that is not found"""
         resp = self.client.get(f"{BASE_URL}/0")
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
-
 
     def test_get_account_list(self):
         """It should Get a list of Accounts"""
